@@ -9,10 +9,15 @@ $(document).ready(function() {
 
     $.get(url, function(info) {
       $('.container').prepend(Mustache.render(template, info));
-    }).fail(function() {
-      $('.container').prepend("User not found")
-    }).always(function() {
-      $('input.username').val('');
+      }).fail(ifUserDoesNotExist()).always(replaceEmptyTextBox());
     });
-  });
+  
+  var ifUserDoesNotExist = function() {
+    $('.container').prepend("User not found")
+  };
+
+  var replaceEmptyTextBox = function() {
+    $('input.username').val('');
+  };
+
 });
