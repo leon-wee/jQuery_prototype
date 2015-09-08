@@ -1,1 +1,0 @@
-var access_token = '336045d0d319f0975870e18a7678ffaa13647af4'
